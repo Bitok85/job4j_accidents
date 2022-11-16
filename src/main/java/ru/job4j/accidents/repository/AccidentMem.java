@@ -3,6 +3,8 @@ package ru.job4j.accidents.repository;
 import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Repository;
 import ru.job4j.accidents.model.Accident;
+import ru.job4j.accidents.model.AccidentType;
+
 
 import java.util.List;
 import java.util.Map;
@@ -14,13 +16,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class AccidentMem {
     private final Map<Integer, Accident> accidents = new ConcurrentHashMap<>();
     private final AtomicInteger key;
+
+    private final AccidentType types = new AccidentType();
     private AccidentMem() {
         accidents.put(1, new Accident(1, "acc1", "text", "MSK"));
         accidents.put(2, new Accident(2, "acc2", "text", "SPB"));
         accidents.put(3, new Accident(3, "acc3", "text", "EKT"));
         key = new AtomicInteger(accidents.size());
     }
-
     public List<Accident> findAll() {
         return accidents.values().stream().toList();
     }

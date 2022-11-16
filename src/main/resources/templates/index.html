@@ -36,6 +36,7 @@
                 <th scope="col">Name
                 <th scope="col">Text
                 <th scope="col">Address
+                <th scope="col">Type
             </tr>
             </thead>
             <tbody>
@@ -49,6 +50,9 @@
                 </td>
                 <td th:text="${accident.text}" />
                 <td th:text="${accident.address}" />
+                <td>
+                    <span th:text="${accident?.type?.name}"></span>
+                </td>
             </tr>
             </tbody>
         </table>
