@@ -1,9 +1,9 @@
-package ru.job4j.accidents.repository;
+package ru.job4j.accident.repository;
 
 import net.jcip.annotations.ThreadSafe;
 import org.springframework.stereotype.Repository;
-import ru.job4j.accidents.model.Accident;
-import ru.job4j.accidents.model.AccidentType;
+import ru.job4j.accident.model.Accident;
+import ru.job4j.accident.model.AccidentType;
 
 
 import java.util.List;

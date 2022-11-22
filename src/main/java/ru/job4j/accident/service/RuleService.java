@@ -1,9 +1,9 @@
-package ru.job4j.accidents.service;
+package ru.job4j.accident.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
-import ru.job4j.accidents.model.Rule;
-import ru.job4j.accidents.repository.RuleMem;
+import ru.job4j.accident.model.Rule;
+import ru.job4j.accident.repository.RuleMem;
 
 import java.util.List;
 
