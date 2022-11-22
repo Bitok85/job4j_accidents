@@ -20,7 +20,7 @@
 <body>
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Car Accident <small th:text="${accident}"></small></a>
+        <a class="navbar-brand" href="#">Car Accident</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -48,6 +48,14 @@
                         <select class="form-control" id="type.id" name="type.id">
                             <option th:each="type : ${types}" th:value="${type.id}" th:text="${type.name}"></option>
                         </select>
+                        <div class="form-group">
+                            <label for="type.id" name="ruleIds">Rule</label>
+                            <select class="form-control" id="ruleIds" name="ruleIds" multiple>
+                                <option th:each="rule: ${rules}"
+                                        th:text="${rule.name}"
+                                        th:value="${rule.id}"></option>
+                            </select>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </form>
