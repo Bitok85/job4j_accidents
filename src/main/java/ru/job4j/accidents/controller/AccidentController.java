@@ -53,11 +53,14 @@ public class AccidentController {
     @GetMapping("/formEditAccident/{accidentId}")
     public String formEditAccident(Model model, @PathVariable("accidentId") int id) {
         model.addAttribute("accident", accidentService.findById(id));
+        model.addAttribute("types", typeService.findAll());
         return "editAccident";
     }
 
     @PostMapping("/editAccident")
-    public String editAccident(@ModelAttribute Accident accident) {
+    public String editAccident(@ModelAttribute Accident accident,
+                               @RequestParam("type.id") int id) {
+        accident.setType(typeService.findById(id));
         accidentService.editAccident(accident);
         return "redirect:/index";
     }
