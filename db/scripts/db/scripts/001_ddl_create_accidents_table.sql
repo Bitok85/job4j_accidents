@@ -13,7 +13,12 @@ CREATE TABLE if not exists accident (
 
 create table if not exists rule (
     id serial primary key,
-    name text,
-    accident_id int references accident(id)
+    name text
+);
+
+create table if not exists accidents_rules (
+    id serial primary key,
+    accident_id int not null references accident(id),
+    rule_id int not null references rule(id)
 );
 

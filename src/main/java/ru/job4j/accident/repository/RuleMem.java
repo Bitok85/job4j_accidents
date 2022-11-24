@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Repository
 @ThreadSafe
 public class RuleMem {
     private Map<Integer, Rule> rules = new ConcurrentHashMap<>();
