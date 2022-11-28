@@ -8,7 +8,6 @@ import ru.job4j.accident.model.AccidentType;
 
 import java.util.List;
 
-@Repository
 @AllArgsConstructor
 public class TypeJdbcTemplate {
 

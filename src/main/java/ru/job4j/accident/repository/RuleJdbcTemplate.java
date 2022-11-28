@@ -11,7 +11,6 @@ import javax.sql.DataSource;
 import java.util.*;
 import java.util.stream.Collectors;
 
-@Repository
 @AllArgsConstructor
 public class RuleJdbcTemplate {
 

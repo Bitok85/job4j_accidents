@@ -10,6 +10,7 @@ import ru.job4j.accident.service.RuleService;
 import ru.job4j.accident.service.TypeService;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Controller
@@ -38,11 +39,13 @@ public class AccidentController {
     public String addAccident(@ModelAttribute Accident accident,
                               @RequestParam("type.id") int typeId,
                               @RequestParam(value = "ruleIds", required = false) List<Integer> ruleIds) {
-        accident.setType(typeService.findById(typeId));
+        accident.setType(typeService.findById(typeId)
+                .orElseThrow(() -> new NoSuchElementException("Type not found")));
         if (ruleIds != null) {
             accident.setRules(
                     ruleIds.stream()
-                            .map(ruleId -> ruleService.findById(ruleId))
+                            .map(ruleId -> ruleService.findById(ruleId)
+                                    .orElseThrow(() -> new NoSuchElementException("Rule not found")))
                             .collect(Collectors.toSet()));
         }
 
@@ -62,11 +65,13 @@ public class AccidentController {
     public String editAccident(@ModelAttribute Accident accident,
                                @RequestParam("type.id") int id,
                                @RequestParam("ruleIds") List<Integer> ruleIds) {
-        accident.setType(typeService.findById(id));
+        accident.setType(typeService.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Type not found")));
         if (ruleIds != null) {
             accident.setRules(
                     ruleIds.stream()
-                            .map(ruleId -> ruleService.findById(ruleId))
+                            .map(ruleId -> ruleService.findById(ruleId)
+                                    .orElseThrow(() -> new NoSuchElementException("Rule not found")))
                             .collect(Collectors.toSet()));
         }
         accidentService.editAccident(accident);
