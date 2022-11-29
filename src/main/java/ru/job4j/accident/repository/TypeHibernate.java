@@ -8,19 +8,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-@Repository
 @AllArgsConstructor
 public class TypeHibernate {
-    private final CrudRepository crudRepository;
+    private final LocalCrudRepository localCrudRepository;
     private static final String FIND_ALL = "FROM AccidentType";
     private static final String FIND_BY_ID = "FROM AccidentType WHERE :tId = id";
 
     public List<AccidentType> findAll() {
-        return crudRepository.query(FIND_ALL, AccidentType.class);
+        return localCrudRepository.query(FIND_ALL, AccidentType.class);
     }
 
     public Optional<AccidentType> findById(int id) {
-        return crudRepository.optional(FIND_BY_ID, AccidentType.class, Map.of("tId", id));
+        return localCrudRepository.optional(FIND_BY_ID, AccidentType.class, Map.of("tId", id));
     }
 
 

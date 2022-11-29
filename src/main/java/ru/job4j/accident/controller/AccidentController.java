@@ -55,7 +55,8 @@ public class AccidentController {
 
     @GetMapping("/formEditAccident/{accidentId}")
     public String formEditAccident(Model model, @PathVariable("accidentId") int id) {
-        model.addAttribute("accident", accidentService.findById(id));
+        model.addAttribute("accident", accidentService.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Find accident error")));
         model.addAttribute("types", typeService.findAll());
         model.addAttribute("rules", ruleService.findAll());
         return "editAccident";

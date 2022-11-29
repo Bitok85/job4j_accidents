@@ -6,6 +6,7 @@ import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.repository.RuleHibernate;
 import ru.job4j.accident.repository.RuleJdbcTemplate;
 import ru.job4j.accident.repository.RuleMem;
+import ru.job4j.accident.repository.RuleRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,7 +15,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class RuleService {
 
-    private RuleHibernate store;
+    private RuleRepository store;
 
     public List<Rule> findAll() {
         return store.findAll();

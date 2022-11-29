@@ -9,12 +9,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-@Repository
 @AllArgsConstructor
 public class AccidentHibernate {
 
     private static final Logger LOG = Logger.getLogger(Accident.class.getName());
-    private final CrudRepository crudRepository;
+    private final LocalCrudRepository crudRepository;
     private static final String FIND_ALL = "SELECT DISTINCT a FROM Accident a JOIN FETCH a.rules";
     private static final String FIND_BY_ID = "SELECT DISTINCT a FROM Accident a JOIN FETCH a.rules WHERE a.id = :aId";
 

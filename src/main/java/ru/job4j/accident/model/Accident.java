@@ -13,6 +13,10 @@ import java.util.Set;
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
+@NamedEntityGraph(name = "AccidentGraph", attributeNodes = {
+        @NamedAttributeNode("type"), @NamedAttributeNode("rules")
+})
+
 @Table
 public class Accident {
     @EqualsAndHashCode.Include
@@ -26,7 +30,7 @@ public class Accident {
     @JoinColumn(name = "accident_type_id")
     private AccidentType type;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinTable(
             name = "accidents_rules",
             joinColumns = { @JoinColumn(name = "accident_id")},

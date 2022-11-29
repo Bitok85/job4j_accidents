@@ -16,9 +16,9 @@ import java.util.function.Function;
 
 @Repository
 @AllArgsConstructor
-public class CrudRepository {
+public class LocalCrudRepository {
 
-    private static final Logger LOG = Logger.getLogger(CrudRepository.class.getName());
+    private static final Logger LOG = Logger.getLogger(LocalCrudRepository.class.getName());
     private final SessionFactory sf;
 
     public void run(Consumer<Session> command) {
