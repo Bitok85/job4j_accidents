@@ -1,14 +1,23 @@
-CREATE TABLE users (
-   id SERIAL PRIMARY KEY,
-   username TEXT NOT NULL UNIQUE ,
-   password TEXT NOT NULL,
-   enabled boolean default true
-);
-
 CREATE TABLE authorities (
-     username TEXT NOT NULL UNIQUE ,
-     authority TEXT NOT NULL,
-     user_id int REFERENCES users(id)
+    id SERIAL PRIMARY KEY,
+    authority VARCHAR(50) NOT NULL UNIQUE
 );
 
-select * from authorities;
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL,
+    enabled BOOLEAN DEFAULT TRUE,
+    authority_id int NOT NULL REFERENCES authorities(id)
+);
+
+insert into authorities (authority) values ('ROLE_USER');
+insert into authorities (authority) values ('ROLE_ADMIN');
+
+insert into users (username, enabled, password, authority_id)
+values ('root', true, '$2a$10$wY1twJhMQjGVxv4y5dBC5ucCBlzkzT4FIGa4FNB/pS9GaXC2wm9/W',
+        (select id from authorities where authority = 'ROLE_ADMIN'));
+
+
+
+
