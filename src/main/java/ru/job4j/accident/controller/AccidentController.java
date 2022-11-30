@@ -1,6 +1,7 @@
 package ru.job4j.accident.controller;
 
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,7 @@ public class AccidentController {
     public String index(Model model) {
         model.addAttribute("accidents", accidentService.findAll());
         model.addAttribute("types", typeService.findAll());
+        model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "index";
     }
 
