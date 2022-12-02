@@ -1,4 +1,4 @@
-package ru.job4j.accident.controller;
+/**package ru.job4j.accident.controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,6 @@ public class ControllerTest {
                 .andExpect(view().name("createAccident"));
     }
 
-    /**
     @Test
     @WithMockUser
     public void shouldReturnEditAccident() throws Exception {
@@ -46,7 +45,7 @@ public class ControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(view().name("editAccident"));
-    }*/
+    }
 
     @Test
     @WithMockUser
@@ -67,3 +66,4 @@ public class ControllerTest {
     }
 
 }
+*/
