@@ -1,4 +1,4 @@
-/**package ru.job4j.accident.controller;
+package ru.job4j.accident.controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,15 +40,6 @@ public class ControllerTest {
 
     @Test
     @WithMockUser
-    public void shouldReturnEditAccident() throws Exception {
-        this.mockMvc.perform(get("/formEditAccident"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(view().name("editAccident"));
-    }
-
-    @Test
-    @WithMockUser
     public void shouldReturnLogin() throws Exception {
         this.mockMvc.perform(get("/login"))
                 .andDo(print())
@@ -66,4 +57,3 @@ public class ControllerTest {
     }
 
 }
-*/
