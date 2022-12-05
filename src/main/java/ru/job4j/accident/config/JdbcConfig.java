@@ -16,8 +16,7 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 public class JdbcConfig {
 
-    @Bean
-    public DataSource dataSource(@Value("${jdbc.driver}") String driver,
+    /**public DataSource dataSource(@Value("${jdbc.driver}") String driver,
                                  @Value("${jdbc.url}") String url,
                                  @Value("${jdbc.username}") String username,
                                  @Value("${jdbc.password}") String password) {
@@ -27,9 +26,8 @@ public class JdbcConfig {
         dataSource.setUsername(username);
         dataSource.setPassword(password);
         return dataSource;
-    }
+    }*/
 
-    @Bean
     public JdbcTemplate jdbc(DataSource dataSource) {
         return new JdbcTemplate(dataSource);
     }

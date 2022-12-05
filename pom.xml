@@ -26,7 +26,7 @@
         <maven.compiler.target>16</maven.compiler.target>
     </properties>
 
-    <profiles>
+    <!--<profiles>
         <profile>
             <id>test</id>
             <properties>
@@ -42,7 +42,7 @@
                 <liquibase.config>src/main/resources/db.properties</liquibase.config>
             </properties>
         </profile>
-    </profiles>
+    </profiles>-->
 
     <dependencies>
         <dependency>
@@ -215,7 +215,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>4.15.0</version>
@@ -231,7 +231,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

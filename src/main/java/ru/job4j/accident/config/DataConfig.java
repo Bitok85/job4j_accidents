@@ -40,4 +40,16 @@ public class DataConfig {
         txManager.setEntityManagerFactory(entityManagerFactory);
         return txManager;
     }
+    @Bean
+    public DataSource dataSource(@Value("${jdbc.driver}") String driver,
+                                 @Value("${jdbc.url}") String url,
+                                 @Value("${jdbc.username}") String username,
+                                 @Value("${jdbc.password}") String password) {
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setDriverClassName(driver);
+        dataSource.setUrl(url);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
+        return dataSource;
+    }
 }
