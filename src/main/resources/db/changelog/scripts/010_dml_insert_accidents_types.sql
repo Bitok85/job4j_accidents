@@ -1,0 +1,3 @@
+--insert into accident_type (name) values ('Two cars');
+--insert into accident_type (name) values ('Car - man');
+--insert into accident_type (name) values ('Car - bicycle');

@@ -1,0 +1,3 @@
+--insert into rule (name) values ('Rule 1');
+--insert into rule (name) values ('Rule 2');
+--insert into rule (name) values ('Rule 3');
