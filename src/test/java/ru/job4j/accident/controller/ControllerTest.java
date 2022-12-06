@@ -29,7 +29,7 @@ import static org.mockito.Mockito.verify;
 @SpringBootTest(classes = App.class)
 @ActiveProfiles("test")
 @AutoConfigureMockMvc
-@TestPropertySource("classpath:application-test.properties")
+@TestPropertySource("classpath:application.properties")
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 public class ControllerTest {
 
