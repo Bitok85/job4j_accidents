@@ -26,6 +26,8 @@
         <maven.compiler.target>16</maven.compiler.target>
     </properties>
 
+    <packaging>war</packaging>
+
     <!--<profiles>
         <profile>
             <id>test</id>
@@ -246,6 +248,14 @@
                 <version>3.0.0-M7</version>
                 <configuration>
                     <skipTests>false</skipTests>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
         </plugins>
